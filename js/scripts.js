@@ -11,6 +11,20 @@ Ticket.prototype.calculateTicketPrice = function() {
   var ticketPrice = this.movieName + this.movieTime + this.personAge;
   return ticketPrice;
 }
+
+Ticket.prototype.showDiscount = function() {
+  $("#show-ticket h5").empty();
+  if (this.movieName === 13) {
+    $("#show-ticket h5").append(" * Additional price added for new release (+$2) * ");
+  }
+  if (this.movieTime === -2) {
+    $("#show-ticket h5").append(" * Matinee discount applied (-$2) * ");
+  }
+  if (this.personAge === -1) {
+    $("#show-ticket h5").append(" * Senior discount applied (-$1) * ");
+  }
+}
+
 //user interface logic
 $(document).ready(function() {
   $("form#new-ticket").submit(function(event) {
@@ -30,5 +44,7 @@ $(document).ready(function() {
     $("#show-ticket").fadeIn().delay(10).fadeOut().delay(10).fadeIn().delay(10).fadeOut().delay(10).fadeIn().delay(10).fadeOut().delay(10).fadeIn();
     $("#show-ticket h3").text(newTicket.showTitle);
     $("#show-ticket h4").text(newTicket.finalTime);
+
+    newTicket.showDiscount();
   });
 });
