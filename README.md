@@ -3,7 +3,7 @@
 
 #### _A page utilizing JavaScript objects and prototypes that displays a user's movie ticket price depending on movie, time and age selected._
 
-#### By _**Adam Craig_
+#### By _**Adam Craig**_
 
 ## Known Bugs
 
